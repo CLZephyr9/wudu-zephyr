@@ -1,0 +1,18 @@
+.pain-tags{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px 10px;padding:2px 0}
+.pain-tags .style-tag{grid-column:span 2;min-height:45px;font-size:14px;letter-spacing:1px;padding:10px 3px 13px}
+.pain-tags .style-tag:nth-child(4){grid-column:2/span 2}
+.pain-tags .style-tag:nth-child(5){grid-column:4/span 2}
+.day .style-tag:before{display:none}.day .style-tag .style-label{opacity:1;filter:none}
+.day .style-tag{background:#ffffff24;border-color:#8da9bc32}
+.style-mist{display:none;position:absolute;left:-12px;top:-12px;z-index:4;width:calc(100% + 24px);height:calc(100% + 24px);touch-action:none;cursor:crosshair;border:0;border-radius:0;box-shadow:none}
+.day .style-mist{display:block}
+.mist-gesture{display:none;position:absolute;z-index:5;left:calc(50% - 12px);top:calc(50% - 12px);width:24px;height:24px;border:1px solid #6a879b94;border-radius:50%;pointer-events:none;box-shadow:0 0 0 5px #ffffff28}
+.day .constellation-surface:not(.mist-touched) .mist-gesture{display:block;animation:mistGesture 2.7s ease-in-out infinite}
+.mist-gesture:after{content:'';position:absolute;right:25px;top:11px;width:45px;height:1px;background:linear-gradient(90deg,transparent,#6a879b75)}
+@keyframes mistGesture{0%,100%{transform:translateX(-30px);opacity:0}20%{opacity:.65}65%{transform:translateX(30px);opacity:.65}80%{opacity:0}}
+.profile-interaction-ripple{position:absolute;width:170px;height:170px;margin:-85px 0 0 -85px;pointer-events:none;--ripple-color:#c3dbe8;--ripple-glow:#c5dfe336}
+.day .profile-interaction-ripple{--ripple-color:#7799ad;--ripple-glow:#8baebd22}
+.profile-interaction-ripple i{position:absolute;inset:0;border:1px solid var(--ripple-color);border-radius:50%;box-shadow:0 0 6px var(--ripple-glow),inset 0 0 5px var(--ripple-glow);animation:profileRipple 1.65s cubic-bezier(.15,.55,.4,1) both}
+.profile-interaction-ripple i:nth-child(2){animation-delay:.16s}.profile-interaction-ripple i:nth-child(3){animation-delay:.32s}
+@keyframes profileRipple{0%{opacity:.65;transform:scale(.02,.014)}70%{opacity:.17}100%{opacity:0;transform:scale(1.3,1)}}
+@media(prefers-reduced-motion:reduce){.mist-gesture{animation:none!important}.profile-interaction-ripple i{animation-duration:.65s}}

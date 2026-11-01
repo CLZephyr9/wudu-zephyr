@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>无渡 · 开场交互预览</title>
+<style>
+@font-face{font-family:OpeningFang;src:url('__FANG__')}@font-face{font-family:Allura;src:url('__ALLURA__')}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080e17}body{font-family:OpeningFang,FangSong,serif;color:#dce6ee}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #9ab9d2;outline-offset:5px}
+.stage{position:relative;width:100%;height:100%;height:100dvh;overflow:hidden;background:#080e17;--fg:#dce6ee;--muted:#a9bed0;--edge:#6c849b;--fill:rgba(29,48,67,.25)}
+.stage.day{--fg:#3b5369;--muted:#617c93;--edge:#9eb3c3;--fill:rgba(255,255,255,.28);background:#f1f6f8;color:var(--fg)}
+.opening,.water-scene{position:absolute;inset:0}.opening:before{content:'';position:absolute;inset:0;background:linear-gradient(#080e1740,#080e1760),url('__NIGHT__') center/cover;opacity:.85}.day .opening:before{background:linear-gradient(#f1f6f870,#f1f6f850),url('__DAY__') center/cover}
+.theme{position:absolute;z-index:4;top:max(24px,env(safe-area-inset-top));left:6.2%;width:60px;height:32px;border:1px solid var(--edge);border-radius:20px;background:transparent;color:var(--fg);display:flex;align-items:center;justify-content:space-evenly}.theme .symbol{font-family:serif;font-size:21px;line-height:1}.dot{width:5px;height:5px;background:var(--muted);border-radius:50%}
+.poem{position:absolute;top:37.4%;width:100%;text-align:center;color:var(--fg);font-size:clamp(12px,3.67vw,19px);line-height:1.8;padding:0 12px}.poem p{margin:0 0 12px}.poem p:last-child{margin-top:25px}
+.name-area{position:absolute;top:75.6%;left:14.45%;width:71.1%;height:58px}.name-area input{width:100%;height:100%;border:1px solid var(--edge);border-radius:5px;background:var(--fill);padding:0 19px;color:var(--fg);font-size:17px;transition:opacity .55s,transform .55s}.name-area input::placeholder{color:var(--muted);opacity:1}.name-area.confirmed input{opacity:0;transform:translateY(-5px);pointer-events:none}.continue{position:absolute;inset:0;width:100%;border:0;background:transparent;font-family:Allura,cursive;color:var(--fg);font-size:34px;font-weight:400;opacity:0;transform:translateY(6px);transition:opacity .7s,transform .7s}.continue.ready{opacity:1;transform:none}.continue[hidden]{display:none}
+.snow{position:absolute;inset:0;pointer-events:none}.snow img{position:absolute;top:-20px;opacity:.3;animation:fall linear infinite}.day .snow{display:none}@keyframes fall{from{transform:translate3d(0,-20px,0) rotate(0)}to{transform:translate3d(25px,calc(100dvh + 40px),0) rotate(90deg)}}
+.flowers{display:none;position:absolute;right:2%;bottom:-2%;width:34.5%;max-height:25%;object-fit:contain;object-position:bottom;opacity:.56;transform-origin:55% 100%;animation:sway 5s ease-in-out infinite alternate;filter:grayscale(1)}.day .flowers{display:block}@keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+.opening{z-index:2}.water-scene{z-index:1;background:#142936;visibility:hidden;color:#e1ebef}.water-scene:before{content:'';position:absolute;inset:0;background:linear-gradient(#102b3a12,#07131e24),url('__HANDS__') center/cover}.water-scene:after{content:'';position:absolute;inset:-20%;background:repeating-radial-gradient(ellipse at 65% 35%,transparent 0 40px,#b2e4ff05 43px,transparent 46px 110px);filter:blur(4px);animation:lightDrift 9s ease-in-out infinite alternate;pointer-events:none}@keyframes lightDrift{to{transform:translate(4%,3%) rotate(5deg)}}
+.water-copy{position:absolute;z-index:1;top:18%;left:9%;width:82%;font-size:17px;line-height:2.15;letter-spacing:1px;text-shadow:0 2px 15px #000;opacity:0;transition:opacity 1.2s}.water-scene.visible .water-copy{opacity:1}.choices{position:absolute;z-index:1;left:10%;right:10%;bottom:14%;display:flex;gap:20px}.choices button{flex:1;padding:15px 4px;border:1px solid #b3cdd480;color:#e5eef1;background:#10253250;border-radius:4px}.choices[hidden]{display:none}.branch{position:absolute;inset:0;z-index:2;background:transparent;border:0}.branch[hidden]{display:none}
+@media(min-width:600px){body{display:grid;place-items:center;background:#1b222a}.stage{width:min(450px,100vw);height:min(975px,100dvh)}.poem{font-size:16.5px}}
+</style>
+<main class="stage" id="stage">
+ <section class="opening" id="opening">
+  <div class="snow" id="snow"></div><img class="flowers" src="__FLOWERS__" alt="">
+  <div class="poem"><p>“全世界的水都会重逢，</p><p>北冰洋与尼罗河会在湿云中交融”</p><p>即使漫游，有条路会带你归家。</p></div>
+  <form class="name-area" id="nameForm"><input id="visitorName" aria-label="该怎么称呼你" placeholder="该怎么称呼你" enterkeyhint="done" autocomplete="off" maxlength="30" required><button type="button" class="continue" id="continue" hidden>CONTINUE</button></form>
+ </section>
+ <section class="water-scene" id="waterScene"><div class="water-copy" id="waterCopy">你缓缓睁开眼，周遭是漫开的冷水。视线往下，望见一道身影正朝着水底沉去，她面容苍白，双目紧闭</div><div class="choices" id="choices" hidden><button data-choice="grab">抓住她</button><button data-choice="leave">不管她</button></div></section>
+ <button class="theme" id="theme" aria-label="切换日夜模式"><span class="symbol" id="themeSymbol">☾</span><span class="dot"></span></button>
+</main>
+<script>
+'use strict';
+const stage=document.getElementById('stage'),form=document.getElementById('nameForm'),input=document.getElementById('visitorName'),next=document.getElementById('continue'),scene=document.getElementById('waterScene');
+const systemTheme=matchMedia('(prefers-color-scheme: dark)');let manualTheme=false,confirmed=false,busy=false,visitorName='',waterStep=0;
+function setTheme(day){stage.classList.toggle('day',day);document.getElementById('themeSymbol').textContent=day?'☼':'☾'}setTheme(!systemTheme.matches);systemTheme.addEventListener('change',e=>{if(!manualTheme)setTheme(!e.matches)});document.getElementById('theme').addEventListener('click',()=>{manualTheme=true;setTheme(!stage.classList.contains('day'))});
+for(let i=0;i<27;i++){const flake=new Image();flake.src='__SNOW__';flake.alt='';flake.style.cssText=`left:${(i*37.73)%100}%;width:${3+i%5}px;animation-duration:${16+i%13}s;animation-delay:-${i*1.71}s;opacity:${.18+(i%5)*.055}`;document.getElementById('snow').append(flake)}
+form.addEventListener('submit',event=>{event.preventDefault();if(confirmed||!input.value.trim())return;confirmed=true;visitorName=input.value.trim();input.readOnly=true;input.blur();form.classList.add('confirmed');setTimeout(()=>{input.hidden=true;next.hidden=false;requestAnimationFrame(()=>next.classList.add('ready'));next.focus({preventScroll:true})},550)});
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+function blurTransition(duration){return new Promise(resolve=>{let start;const opening=document.getElementById('opening');scene.style.visibility='visible';scene.style.opacity='0';scene.style.filter='blur(22px)';scene.classList.add('visible');opening.style.willChange='filter,opacity';scene.style.willChange='filter,opacity';function frame(now){start??=now;const t=Math.min(1,(now-start)/duration);const outgoing=ease(Math.min(1,t/.72));const incoming=ease(Math.max(0,Math.min(1,(t-.25)/.75)));opening.style.filter=`blur(${outgoing*20}px)`;opening.style.opacity=String(1-outgoing);scene.style.opacity=String(incoming);scene.style.filter=`blur(${(1-incoming)*22}px)`;if(t<1)requestAnimationFrame(frame);else{opening.hidden=true;opening.style.willChange='auto';scene.style.filter='none';scene.style.opacity='1';scene.style.willChange='auto';resolve()}}requestAnimationFrame(frame)})}
+next.addEventListener('click',async()=>{if(busy||!confirmed)return;busy=true;next.disabled=true;document.getElementById('theme').disabled=true;await blurTransition(2200);document.getElementById('theme').disabled=false;busy=false;stage.dataset.scene='water'});
+scene.addEventListener('click',e=>{if(busy||!scene.classList.contains('visible'))return;const choice=e.target.closest('[data-choice]');if(choice){document.getElementById('waterCopy').textContent=choice.dataset.choice==='grab'?'她睁开了眼，眼尾泛着一点冷白，雾灰的瞳色很浅，空空的，如同死水':'你懒得管她，回身向岸上游去，却仿佛感觉到有什么阻力拽着你的手腕往回拉，你一回头，对上一片死寂无波的眸子';document.getElementById('choices').hidden=true;waterStep=2}else if(waterStep===0){document.getElementById('choices').hidden=false;waterStep=1}});
+</script>
+</html>

@@ -1,0 +1,11 @@
+<dialog class="talk-dialog" id="talkDialog" aria-labelledby="talkTitle">
+ <div class="talk-letter-paper" aria-hidden="true"></div>
+ <div class="talk-letter-rule" aria-hidden="true"></div>
+ <div class="talk-envelope-fold" aria-hidden="true"></div>
+ <svg class="talk-postmark" viewBox="0 0 180 85" aria-hidden="true"><circle cx="44" cy="43" r="31"/><circle cx="44" cy="43" r="25"/><path d="M27 43h34M44 26v34M76 24c18-12 28 12 47 0s28 12 46 0M76 36c18-12 28 12 47 0s28 12 46 0M76 48c18-12 28 12 47 0s28 12 46 0M76 60c18-12 28 12 47 0s28 12 46 0"/></svg>
+ <div class="talk-page-corner" aria-hidden="true"></div>
+ <header class="talk-header"><button id="talkTheme" class="talk-theme" type="button" aria-label="切换日夜模式">☾</button><h2 id="talkTitle">话术</h2><button id="talkReturn" class="talk-return" type="button">返回<span aria-hidden="true">↗</span></button></header>
+ <div class="talk-tabs" role="tablist" aria-label="话术分类"><span class="talk-category-bookmark" aria-hidden="true"></span><button id="talkLoveTab" type="button" role="tab" aria-selected="true" aria-controls="talkThumbnails">病恋</button><button id="talkPainTab" type="button" role="tab" aria-selected="false" aria-controls="talkThumbnails" tabindex="-1">虐恋</button></div>
+ <div class="talk-thumbnails" id="talkThumbnails" role="tabpanel" aria-labelledby="talkLoveTab"></div>
+ <footer class="talk-footer"><button id="talkPrevious" type="button" aria-label="上一页">←<span>上一页</span></button><span id="talkPageNumber">1 / 2</span><button id="talkNext" type="button" aria-label="下一页"><span>下一页</span>→</button></footer>
+</dialog>

@@ -1,0 +1,3 @@
+.text-ink{display:inline-block;max-width:100%;transform-origin:50% 75%}
+.profile-grid button>.text-ink{align-self:center;font-family:inherit;font-size:inherit;opacity:1;color:inherit;letter-spacing:inherit}
+@media(prefers-reduced-motion:reduce){.text-ink{transform:none!important}}

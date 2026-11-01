@@ -1,0 +1,21 @@
+/* Second-page layout: keep the approved picture sharp and fully visible. */
+.water-scene{background:#000;color:#fff;touch-action:manipulation;overflow:hidden}
+.water-scene:before{background:#000 url('__HANDS__') center/contain no-repeat}
+.water-scene:after{display:none}
+.stage[data-scene="water"] .theme{color:#ddd;--fg:#ddd;--muted:#adb3b7;--edge:#5b6267}
+.water-copy{top:max(78px,9.5%);left:8%;width:84%;margin:0;font-size:clamp(14px,4vw,17px);line-height:1.9;letter-spacing:.5px;color:#fff;text-shadow:0 1px 8px #000;opacity:1;transition:opacity .4s;white-space:pre-wrap;pointer-events:none}
+.water-copy.fading,.water-scene.visible .water-copy.fading{opacity:0}
+.choices{bottom:max(88px,12%);left:12%;right:12%;gap:22px;opacity:1;transition:opacity .4s,transform .4s}
+.choices button{min-height:48px;padding:13px 5px;color:#f0f0f0;background:#ffffff04;border:1px solid #a3a8ac73;border-radius:4px;font-size:16px;letter-spacing:2px;transition:background .2s}
+.choices button:active{background:#ffffff15}
+.choices.fading{opacity:0;transform:translateY(4px);pointer-events:none}
+.touch-hint{position:absolute;z-index:2;bottom:max(35px,5.5%);left:0;width:100%;padding:12px;border:0;background:none;text-align:center;font-family:OpeningFang,FangSong,serif;font-size:13px;letter-spacing:4px;color:#c8cdd0;opacity:.76;animation:hintBreath 3s ease-in-out infinite;cursor:pointer}
+.touch-hint[hidden]{display:none}
+@keyframes hintBreath{50%{opacity:.38}}
+.touch-ripples{position:absolute;z-index:5;inset:0;pointer-events:none;overflow:hidden}
+.touch-ripple{position:absolute;width:160px;height:160px;margin:-80px 0 0 -80px;pointer-events:none}
+.touch-ripple i{position:absolute;inset:0;border:1px solid #e3edf0a8;border-radius:50%;box-shadow:0 0 5px #d2e8ed25,inset 0 0 4px #d2e8ed13;animation:spread 1.5s cubic-bezier(.15,.55,.4,1) both}
+.touch-ripple i:nth-child(2){animation-delay:.14s;opacity:0}.touch-ripple i:nth-child(3){animation-delay:.29s;opacity:0}
+@keyframes spread{0%{transform:scale(.025);opacity:.7}70%{opacity:.19}100%{transform:scale(1.25);opacity:0}}
+@media(max-height:700px){.water-copy{top:68px;font-size:14px;line-height:1.8}.choices{bottom:10%}.touch-hint{bottom:2.5%}}
+@media(prefers-reduced-motion:reduce){.touch-ripple i{animation-duration:.65s}.touch-hint{animation:none}.snow img,.flowers{animation:none}}

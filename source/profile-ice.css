@@ -1,0 +1,7 @@
+.profile-interaction-ripple canvas{display:block;width:100%;height:100%;pointer-events:none;animation:none;transform:none;opacity:.7}
+.day .profile-interaction-ripple canvas{opacity:.75}
+.profile-day-ice{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;display:none}
+.stage[data-scene="profile"].day .profile-day-ice{display:block}
+.profile-day-ice img{position:absolute;top:-35px;left:var(--ice-x);width:var(--ice-size);height:var(--ice-size);object-fit:contain;opacity:0;filter:saturate(.35) brightness(.79);animation:dayIceFall var(--ice-time) linear infinite;animation-delay:var(--ice-delay);pointer-events:none}
+@keyframes dayIceFall{0%{opacity:0;transform:translate3d(0,-20px,0) rotate(0)}12%,80%{opacity:var(--ice-opacity)}100%{opacity:0;transform:translate3d(var(--ice-sway),calc(100dvh + 45px),0) rotate(115deg)}}
+@media(prefers-reduced-motion:reduce){.profile-day-ice{display:none!important}}

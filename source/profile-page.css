@@ -1,0 +1,33 @@
+@font-face{font-family:Cinzel;src:url('__CINZEL__');font-weight:100 900;font-display:swap}
+@font-face{font-family:Cormorant;src:url('__CORMORANT__');font-weight:100 900;font-display:swap}
+.profile-page{--paper:#0c131b;--ink:#d6e0e8;--secondary:#91a4b4;--line:#94aec22b;--tile:#b9d1e407;position:absolute;inset:0;z-index:3;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;background:var(--paper);color:var(--ink);scrollbar-width:thin;scrollbar-color:#66778745 transparent;-webkit-overflow-scrolling:touch;opacity:0;transition:opacity .65s}
+.profile-page[hidden]{display:none}.profile-page.visible{opacity:1}
+.profile-transition-veil{position:absolute;inset:0;z-index:20;background:#000;pointer-events:auto;touch-action:none;opacity:0}
+.day .profile-page{--paper:#f0f4f6;--ink:#354c5e;--secondary:#6d879c;--line:#738da132;--tile:#ffffff50}
+.profile-page:before{content:'';position:fixed;inset:0;background:linear-gradient(#0c131be8,#0c131bf2),url('__NIGHT__') center/cover;opacity:.7;pointer-events:none}
+.day .profile-page:before{background:linear-gradient(#f0f4f6c9,#f0f4f6d9),url('__DAY__') center/cover}
+.profile-content{position:relative;min-height:100%;padding-bottom:64px;isolation:isolate}
+.archive-header{position:relative;z-index:2;text-align:center;padding-top:max(38px,env(safe-area-inset-top));height:100px;pointer-events:none}
+.archive-header p{font-size:14px;letter-spacing:8px;margin:0 0 8px 8px;font-weight:400}
+.archive-header>span{display:block;font-family:Cinzel,serif;font-size:10px;letter-spacing:4px;color:var(--secondary);padding-left:4px}
+.profile-hero{position:relative;height:330px;margin-top:-3px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.profile-portrait{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:.83;filter:saturate(.45) brightness(.77);mask-image:linear-gradient(transparent,#000 19%,#000 61%,transparent 100%)}
+.day .profile-portrait{opacity:.9;filter:saturate(.5) brightness(1.04)}
+.profile-name{display:flex;align-items:baseline;justify-content:center;gap:15px;font-size:27px;line-height:1.3;font-weight:400;margin:-15px 0 0;position:relative;z-index:2;letter-spacing:3px}
+.profile-english-name{font-family:Cormorant,serif;font-size:32px;font-weight:400;letter-spacing:1px}
+.name-slash{font-size:20px;color:var(--secondary);opacity:.7;letter-spacing:0}
+.identity-rule{width:44px;height:1px;background:var(--secondary);opacity:.45;margin:23px auto 0}
+.profile-body{position:relative;z-index:1;width:calc(100% - 58px);max-width:390px;margin:37px auto 0}
+.profile-section{margin:0 0 33px}.profile-section h2{margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:17px;font-weight:400;letter-spacing:4px}
+.attributes{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin:0;font-size:15px;line-height:1.6}
+.attributes div{display:flex;gap:17px}.attributes dt{color:var(--secondary);min-width:31px}.attributes dd{margin:0;letter-spacing:.8px}
+.style-block+.style-block{margin-top:20px}.style-block h3{font-size:15px;font-weight:400;letter-spacing:3px;color:var(--secondary);margin:0 0 9px}
+.style-block p{font-size:15px;line-height:2.1;margin:0;overflow-wrap:anywhere;letter-spacing:.5px}.style-block p span{display:inline-block;margin:0 7px;color:var(--secondary);opacity:.55}
+.models-section p{font-size:16px;letter-spacing:2px;margin:0}.model-divider{color:var(--secondary);opacity:.6;margin:0 18px}
+.profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:39px}
+.profile-grid button{display:flex;align-items:center;justify-content:space-between;min-height:69px;border:1px solid var(--line);border-radius:3px;padding:19px 18px;background:var(--tile);color:var(--ink);font-family:OpeningFang,FangSong,serif;font-size:17px;letter-spacing:3px;text-align:left;cursor:default}
+.profile-grid button span{color:var(--secondary);font-family:serif;font-size:14px;opacity:.7;letter-spacing:0}
+.profile-grid button:last-child:nth-child(odd){grid-column:1 / -1}
+.profile-crystal{position:absolute;right:-18px;top:465px;width:115px;opacity:.045;pointer-events:none;z-index:0}.day .profile-crystal{opacity:.10}
+@media(min-width:600px){.profile-page:before{width:450px;left:calc(50% - 225px)}.profile-hero{height:350px}.profile-body{width:calc(100% - 66px)}}
+@media(max-width:350px){.profile-body{width:calc(100% - 44px)}.attributes{column-gap:12px}.attributes div{gap:12px}.style-block p{font-size:14px}.profile-grid button{padding:17px 14px}}

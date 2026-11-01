@@ -1,0 +1,29 @@
+.ending-background{position:absolute;inset:0;z-index:3;overflow:hidden;background:#08090b;pointer-events:none}.ending-background[hidden]{display:none}
+.ending-day-art,.ending-night-art,.ending-day-art>div,.ending-night-art>div{position:absolute;inset:0;pointer-events:none}
+.ending-day-art{display:none;background:#e9edef}.day .ending-day-art{display:block}.day .ending-night-art{display:none}
+.ending-garden{background:url('__END_GARDEN__') center/cover;filter:grayscale(.65) saturate(.4);opacity:.85}
+.ending-day-art .ending-day-flowers{inset:28% -12% -9% 10%;background:url('__END_FLOWERS__') center bottom/cover;filter:grayscale(.65) saturate(.45);opacity:.4;mask-image:linear-gradient(transparent,#000 64%),linear-gradient(90deg,transparent,#000 22%,#000);mask-composite:intersect}
+.ending-day-art .ending-frost-photo{inset:-7% 36% 53% -15%;background:url('__END_ICE_PHOTO__') left center/cover;filter:grayscale(.8);opacity:.35;mask-image:linear-gradient(135deg,#000,transparent 78%)}
+.ending-day-art .ending-spiral{inset:0 -19% 65% 21%;background:url('__END_SPIRAL__') center/contain no-repeat;mix-blend-mode:multiply;opacity:.14;rotate:-24deg;mask-image:linear-gradient(#000,transparent 94%)}
+.ending-day-haze{background:radial-gradient(ellipse 80% 36% at 48% 44%,#f0f3f5e6,transparent 98%),linear-gradient(#edf1f359,transparent 25%,transparent 75%,#e7ebee80)}
+.ending-black-flow{background:url('__END_BLACK_FLOW__') center/cover;filter:grayscale(1);opacity:.9}
+.ending-night-art .ending-shattered-time{inset:0 -8% -1% 0;background:url('__END_SHATTERED__') center/cover;filter:grayscale(.85) brightness(.7);opacity:.62;mask-image:radial-gradient(ellipse 70% 31% at 49% 44%,transparent 10%,#000 100%)}
+.ending-night-art .ending-frost-branch{inset:auto 39% -2% -22%;height:44%;background:url('__END_FROST_BRANCH__') left bottom/contain no-repeat;filter:grayscale(1);opacity:.42;rotate:8deg;mask-image:linear-gradient(transparent,#000 44%)}
+.ending-night-haze{background:radial-gradient(ellipse 75% 34% at 49% 44%,#080b0ee8,transparent 100%),linear-gradient(#05070a55,transparent 20%,transparent 80%,#05070a80)}
+.ending-entry{display:block;margin:45px auto 0;padding:13px 25px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--secondary);font:15px OpeningFang,FangSong,serif;letter-spacing:4px;cursor:pointer}
+.ending-background{color:#d2dae0;animation:ending-appear 1s ease both}.day .ending-background{color:#425460}
+.ending-content{position:absolute;top:45%;left:10%;width:80%;transform:translateY(-50%);pointer-events:auto}
+.ending-choices{display:flex;flex-direction:column;align-items:center;gap:25px;transition:opacity .5s,filter .5s}
+.ending-choices button{width:100%;max-width:290px;min-height:51px;padding:14px 23px;border:1px solid #a6b6c373;border-radius:999px;background:#101a223d;color:inherit;font:16px OpeningFang,FangSong,serif;letter-spacing:4px;cursor:pointer;touch-action:manipulation}
+.day .ending-choices button{border-color:#7d909f80;background:#f3f5f536}
+.ending-choices.is-leaving{opacity:0;filter:blur(5px);pointer-events:none}.ending-choices[hidden],.ending-copy[hidden]{display:none}
+.ending-copy{margin:0 auto;max-width:330px;font-size:17px;line-height:2.15;letter-spacing:1px;white-space:pre-wrap;text-align:left;text-shadow:0 1px 8px #0004;animation:ending-appear 1.4s ease both}
+.day .ending-copy{text-shadow:none}.ending-copy[data-branch="shore"]{text-align:center}
+.ending-copy[data-branch="silence"]{text-align:center;letter-spacing:5px}
+.ending-exit{position:absolute;bottom:max(24px,3%);left:50%;transform:translateX(-50%);padding:8px 20px;min-height:44px;border:0;background:none;color:inherit;font:14px OpeningFang,FangSong,serif;letter-spacing:3px;pointer-events:auto;opacity:.65;cursor:pointer}
+.ending-exit-help{position:absolute;bottom:135px;left:10%;width:80%;margin:0;color:inherit;font-size:12px;line-height:1.8;text-align:center;opacity:.75}
+.ending-exit[hidden],.ending-exit-help[hidden]{display:none}
+.ending-background[data-step="silence"] .ending-return{bottom:max(82px,11%)}
+.ending-return{position:absolute;bottom:max(55px,8%);left:50%;transform:translateX(-50%);padding:12px 16px;min-height:44px;border:0;border-bottom:1px solid #91a1ad50;background:none;color:inherit;font:14px OpeningFang,FangSong,serif;letter-spacing:2px;pointer-events:auto;white-space:nowrap;opacity:.7;cursor:pointer}
+@keyframes ending-appear{from{opacity:0;filter:blur(7px)}to{opacity:1;filter:blur(0)}}
+@media(prefers-reduced-motion:reduce){.ending-background,.ending-copy{animation:none}.ending-choices{transition:none}}

@@ -1,0 +1,11 @@
+<dialog class="review-dialog" id="reviewDialog" aria-labelledby="reviewTitle">
+ <div class="review-emboss" aria-hidden="true"></div><img class="review-frost" src="__REVIEW_FROST__" alt="" aria-hidden="true">
+ <header class="review-header"><button id="reviewTheme" class="review-theme" type="button" aria-label="切换日夜模式">☾</button><h2 id="reviewTitle">板评</h2><button id="reviewReturn" class="review-return" type="button">返回<span aria-hidden="true">↗</span></button></header>
+ <div class="review-thumbnails" id="reviewThumbnails"></div>
+ <footer class="review-footer"><button id="reviewPrevious" type="button" aria-label="上一页">←<span>上一页</span></button><span id="reviewPageNumber">1 / 2</span><button id="reviewNext" type="button" aria-label="下一页"><span>下一页</span>→</button></footer>
+</dialog>
+<dialog class="review-viewer" id="reviewViewer" aria-label="板评大图">
+ <header><button id="reviewImageBack" type="button">返回板评</button><span id="reviewImageNumber"></span></header>
+ <div class="review-image-stage" id="reviewImageStage"><img id="reviewFullImage" alt="" draggable="false"></div>
+ <footer><button id="reviewZoomOut" type="button" aria-label="缩小">−</button><button id="reviewZoomReset" type="button">还原</button><button id="reviewZoomIn" type="button" aria-label="放大">＋</button></footer>
+</dialog>
